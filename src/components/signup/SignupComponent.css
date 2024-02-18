@@ -55,7 +55,10 @@
   cursor: pointer;
   color: var(--secondary-color);
 }
-
+.signup-error {
+  color: red;
+  font-size: small;
+}
 @media screen and (min-width: 1024px) {
   .signup-btn:hover {
     cursor: pointer;

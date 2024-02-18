@@ -1,39 +1,56 @@
 import { useNavigate } from "react-router-dom";
-import { BsFillEyeFill } from "react-icons/bs";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
-import { AiFillEyeInvisible } from "react-icons/ai";
 import "./LoginComponent.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import checkValidate from "../../utils/validate";
 
 const Login = () => {
-  const [showEye, setShowEye] = useState(false);
+  const [showEye, setShowEye] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const navigate = useNavigate();
+  const email = useRef(null);
+  const password = useRef(null);
+  const handleLogin = () => {
+    const message = checkValidate(email.current.value, password.current.value);
+    setErrorMessage(message);
+    if (message) {
+      return;
+    }
+  };
+
   return (
     <div>
       <div className="login-form">
         <h2>Log In</h2>
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className="login-label-input">
             <label htmlFor="login-email">
               Email<span className="ast">*</span>
             </label>
-            <input type="text" id="login-email" />
+            <input type="email" id="login-email" ref={email} required />
           </div>
           <div className="login-label-input">
             <label htmlFor="login-password">
               Password<span className="ast">*</span>
             </label>
-            <input type={!showEye ? "text" : "password"} id="login-password" />
+            <input
+              type={!showEye ? "text" : "password"}
+              id="login-password"
+              ref={password}
+              required
+            />
             <div onClick={() => setShowEye(!showEye)}>
               {showEye ? (
                 <BsFillEyeFill className="eye" />
               ) : (
-                <AiFillEyeInvisible className="eye" />
+                <BsFillEyeSlashFill className="eye" />
               )}
             </div>
           </div>
-
-          <button>Log In</button>
+          <div className="error-msg">{errorMessage}</div>
+          <button onClick={() => handleLogin()}>Log In</button>
           <button>Guest Mode</button>
         </form>
         <p>
