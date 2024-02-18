@@ -1,0 +1,32 @@
+/* Default styles for mobile devices */
+.login-page {
+  display: flex;
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+.login-page-image {
+  width: 50%;
+  height: 100vh;
+  object-fit: cover;
+
+  display: none;
+}
+.login {
+  margin-top: 2rem;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .login-page-image {
+    display: inline;
+  }
+  .login {
+    margin-top: 1rem;
+    top: 40%;
+    left: 75%;
+  }
+}

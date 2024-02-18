@@ -1,0 +1,107 @@
+.login-form {
+  width: 300px;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+}
+
+.login-label-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-label-input > label {
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+.login-label-input > input {
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: black;
+  color: white;
+}
+
+.login-form > h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+
+.login-label-input > input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+form > button {
+  width: 100%;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.2s;
+}
+
+form > button:nth-of-type(1) {
+  background-color: var(--primary-color);
+  color: white;
+  border: 3px solid var(--primary-color);
+  margin-top: 1rem;
+}
+form > button:nth-of-type(2) {
+  border: 3px solid var(--primary-color);
+  background-color: black;
+  color: white;
+}
+form > button:active {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: black;
+  border: 3px solid var(--secondary-color);
+}
+
+.ast {
+  color: red;
+  padding-left: 0.3rem;
+}
+.login-signup {
+  padding-left: 0.3rem;
+  font-weight: bold;
+  transition: all 0.2s ease-out;
+  color: var(--primary-color);
+}
+.login-signup:active {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+.login-label-input {
+  position: relative;
+}
+.eye {
+  position: absolute;
+  font-size: 25px;
+  top: 35px;
+  left: 270px;
+}
+@media screen and (min-width: 1024px) {
+  .login-form {
+    width: 400px;
+  }
+  .login-signup:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  form > button:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: black;
+    border: 3px solid var(--secondary-color);
+  }
+  .eye {
+    left: 370px;
+  }
+}
