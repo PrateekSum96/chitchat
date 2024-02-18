@@ -1,0 +1,21 @@
+.signup-page {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  padding-bottom: 1rem;
+}
+
+.signup {
+  margin: auto;
+  padding-top: 1rem;
+  width: 300px;
+}
+
+@media screen and (min-width: 1024px) {
+  .signup {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

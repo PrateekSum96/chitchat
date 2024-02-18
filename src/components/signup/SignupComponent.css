@@ -1,0 +1,70 @@
+.signup-form > h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-input > label {
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+}
+.label-input > input {
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: black;
+  color: white;
+}
+
+.label-input > input:focus {
+  border: 2px solid var(--primary-color);
+}
+.signup-btn {
+  width: 100%;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.2s;
+}
+
+.signup-btn:active {
+  background-color: var(--secondary-color);
+  color: black;
+  border: 3px solid var(--secondary-color);
+}
+
+.signup-login {
+  color: var(--primary-color);
+  font-weight: bold;
+  padding-left: 0.3rem;
+  transition: all 0.2s;
+}
+
+.signup-login:active {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .signup-btn:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: black;
+    border: 3px solid var(--secondary-color);
+  }
+  .signup-login:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
