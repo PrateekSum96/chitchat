@@ -1,58 +1,57 @@
 import { useNavigate } from "react-router-dom";
-import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { handleLogin } from "../../features/authSlice";
 
 import "./LoginComponent.css";
-import { useState, useRef } from "react";
-import checkValidate from "../../utils/validate";
+import LoginForm from "./LoginForm";
 
-const Login = () => {
-  const [showEye, setShowEye] = useState(true);
+const LoginComponent = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const location = useLocation();
+
   const [errorMessage, setErrorMessage] = useState("");
 
-  const navigate = useNavigate();
-  const email = useRef(null);
-  const password = useRef(null);
-  const handleLogin = () => {
-    const message = checkValidate(email.current.value, password.current.value);
-    setErrorMessage(message);
-    if (message) {
-      return;
-    }
+  const initialUserState = {
+    email: "",
+    password: "",
   };
+  const [user, setUser] = useState(initialUserState);
+
+  const { isLoggedIn } = useSelector((store) => store.auth);
+
+  const handleGuestLogIn = () => {
+    dispatch(
+      handleLogin({
+        email: "adarshbalika@ab.com",
+        password: "adarshBalika123",
+      })
+    );
+    // navigate(location?.state?.from?.pathname, { replace: true });
+  };
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/");
+    }
+    // eslint-disable-next-line
+  }, [handleGuestLogIn]);
 
   return (
     <div>
       <div className="login-form">
         <h2>Log In</h2>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <div className="login-label-input">
-            <label htmlFor="login-email">
-              Email<span className="ast">*</span>
-            </label>
-            <input type="email" id="login-email" ref={email} required />
-          </div>
-          <div className="login-label-input">
-            <label htmlFor="login-password">
-              Password<span className="ast">*</span>
-            </label>
-            <input
-              type={!showEye ? "text" : "password"}
-              id="login-password"
-              ref={password}
-              required
-            />
-            <div onClick={() => setShowEye(!showEye)}>
-              {showEye ? (
-                <BsFillEyeFill className="eye" />
-              ) : (
-                <BsFillEyeSlashFill className="eye" />
-              )}
-            </div>
-          </div>
-          <div className="error-msg">{errorMessage}</div>
-          <button onClick={() => handleLogin()}>Log In</button>
-          <button>Guest Mode</button>
-        </form>
+        <LoginForm
+          user={user}
+          setUser={setUser}
+          errorMessage={errorMessage}
+          setErrorMessage={setErrorMessage}
+          initialUserState={initialUserState}
+        />
+        <button id="guest-login-btn" onClick={handleGuestLogIn}>
+          Guest Mode
+        </button>
         <p>
           Don't have account?
           <span
@@ -69,4 +68,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginComponent;
