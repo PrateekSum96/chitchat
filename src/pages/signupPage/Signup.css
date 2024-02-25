@@ -2,6 +2,7 @@
   background-color: black;
   color: white;
   min-height: 100vh;
+  /* height: auto; */
   padding-bottom: 1rem;
 }
 
@@ -14,8 +15,10 @@
 @media screen and (min-width: 1024px) {
   .signup {
     position: absolute;
-    top: 40%;
+    padding-top: 0rem;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin-top: 2.5rem;
   }
 }
