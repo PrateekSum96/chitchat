@@ -2,12 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./SignupComponent.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import SignupForm from "./SignupForm";
 
 const SignupComponent = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   const [errorMessage, setErrorMessage] = useState("");
   const initialUserState = {
     firstName: "",
@@ -26,7 +26,7 @@ const SignupComponent = () => {
       navigate("/");
     }
     // eslint-disable-next-line
-  }, [dispatch, status]);
+  }, [status, isLoggedIn]);
 
   return (
     <div>

@@ -53,7 +53,6 @@ const SignupForm = (props) => {
         </label>
         <input
           type="text"
-          dvv
           id="last-name"
           onChange={(e) => setUser({ ...user, lastName: e.target.value })}
           value={lastName}

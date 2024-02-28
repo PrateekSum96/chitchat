@@ -30,6 +30,7 @@ const Home = () => {
       >
         Sign Out
       </button>
+      <div></div>
     </div>
   );
 };
