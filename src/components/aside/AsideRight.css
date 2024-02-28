@@ -1,0 +1,63 @@
+.aside-right-userlist {
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.aside-right-heading {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 0;
+  padding-bottom: 0.1rem;
+}
+.aside-right-userlist {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  justify-content: space-between;
+  padding-right: 0.2rem;
+}
+
+.aside-right-userlist > div:nth-of-type(1) {
+  display: flex;
+  cursor: pointer;
+}
+.aside-right-userlist img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  object-fit: cover;
+  object-position: top;
+  outline: none;
+}
+.aside-right-user-info {
+  padding: 0 0.5rem;
+}
+.aside-right-user-info > p {
+  margin: 0;
+}
+.aside-right-user-info > p:nth-of-type(1) {
+  font-size: 1.2rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+}
+.aside-right-user-info > p:nth-of-type(2) {
+  font-size: 0.9rem;
+}
+.aside-right-follow-btn {
+  background-color: var(--primary-color);
+  border-radius: 1rem;
+  color: var(--color-light);
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  border: 2px solid var(--primary-color);
+  transition: all 0.2s ease-out;
+}
+.aside-right-follow-btn:hover {
+  cursor: pointer;
+  border: 2px solid var(--secondary-color);
+}
+@media screen and (min-width: 1024px) {
+}

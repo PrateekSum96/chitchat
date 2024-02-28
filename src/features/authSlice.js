@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
+const encodedToken = localStorage.getItem("token");
+
 export const handleSignUp = createAsyncThunk(
   "auth/handleSignUp",
   async ({ username, password, email, firstName, lastName }) => {
@@ -29,6 +31,21 @@ export const handleLogin = createAsyncThunk(
     return result;
   }
 );
+
+export const followUser = createAsyncThunk(
+  "appUsers/followUser",
+  async (followUserId) => {
+    const response = await fetch(`/api/users/follow/${followUserId}`, {
+      method: "POST",
+      headers: {
+        authorization: encodedToken,
+      },
+    });
+    const result = await response.json();
+    return result;
+  }
+);
+
 const initialState = {
   isLoggedIn: false,
   user: null,
@@ -93,6 +110,21 @@ const authSlice = createSlice({
       .addCase(handleLogin.rejected, (state) => {
         state.status = "error";
         state.error = "Something went wrong. Try again!";
+        toast.error(state.error);
+      })
+      .addCase(followUser.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(followUser.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.error = null;
+        state.user = action.payload.user;
+        toast.success(`You followed ${action.payload.followUser.firstName}!`);
+      })
+      .addCase(followUser.rejected, (state) => {
+        state.status = "error";
+        state.error = "Failed to follow.";
         toast.error(state.error);
       });
   },

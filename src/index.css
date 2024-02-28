@@ -10,6 +10,10 @@ body {
 :root {
   --primary-color: rgb(83, 83, 238);
   --secondary-color: rgb(150, 150, 225);
+  --background-color-dark: black;
+  --background-color-light: white;
+  --color-light: white;
+  --color-dark: black;
 }
 
 code {
@@ -20,6 +24,8 @@ code {
 /* Default styles for mobile devices */
 body {
   font-size: 14px;
+  background-color: var(--background-color-dark);
+  color: var(--color-light);
 }
 
 /* Styles for tablets (portrait) and up */
