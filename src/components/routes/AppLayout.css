@@ -53,9 +53,8 @@
     background-color: var(--color-dark);
   }
   .outlet-div {
-    border: 1px solid red;
-    width: 70%;
-    display: flex;
-    justify-self: center;
+    padding: 0;
+    width: 500px;
+    margin: 0 auto;
   }
 }

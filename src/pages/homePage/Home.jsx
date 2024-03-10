@@ -1,10 +1,17 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../../features/authSlice";
+import { useEffect } from "react";
+import { getAllPosts } from "../../features/postSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getAllPosts());
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div>

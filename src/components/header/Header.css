@@ -4,6 +4,9 @@
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
+  background-color: black;
+  position: relative;
+  z-index: 10;
 }
 .header-app-name {
   font-size: 2rem;
